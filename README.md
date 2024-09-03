@@ -91,3 +91,10 @@ git push -u origin main
 -----
 
 git checkout -b dev
+git push -u origin dev
+
+git checkout -b feature/dif
+수정 후:
+
+git add .
+git commit -m "Amend dev branch"
