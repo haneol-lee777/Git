@@ -74,3 +74,35 @@ Overview of git branch, gitlab, version control
 
 ### 결론:
 이 프로세스는 `dev`와 `main` 브랜치 간의 지속적인 동기화를 통해 충돌을 최소화하고, 코드 품질을 유지하는 데 효과적인 방법입니다. `dev` 브랜치에서의 작업이 `main` 브랜치에 반영되기 전에 충분한 검토와 테스트를 거치는 구조를 유지함으로써, 프로젝트의 안정성과 협업 효율성을 높일 수 있습니다.
+
+
+### Git 실습
+echo "# Git" >> README.md
+
+내용 작성 후:
+
+git init
+git add README.md
+git commit -m "Add overview of Git branch management and version control basics"
+git branch -M main
+git remote add origin https://github.com/haneol-lee777/Git.git
+git push -u origin main
+
+-----
+
+git checkout -b dev
+git push -u origin dev
+
+git checkout -b feature/dif
+수정 후:
+
+git add .
+git commit -m "Amend dev branch"
+
+git push -u origin feature/dif
+git checkout dev
+git pull
+
+git checkout feature/dif
+git merge dev
+<conflicts 해결, PR: feature/dif -> dev>
